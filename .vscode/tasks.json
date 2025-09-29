@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Active File (MSVC)",
+      "type": "shell",
+      "command": "cl",
+      "args": [
+        "/std:c++20",
+        "/EHsc",
+        "/Zi",
+        "/Fe:${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": "$msCompile",
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "Clean",
+      "type": "shell",
+      "command": "cmd",
+      "args": ["/c", "if exist build rmdir /s /q build & mkdir build || mkdir build"],
+      "problemMatcher": []
+    }
+  ]
+}
